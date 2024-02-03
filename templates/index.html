@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+    <style>
+        tr,td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <!-- {% for cliente in clientes %}
+                {% for chave in cliente.keys() %}
+                    <tr>
+                        <th>{{ chave }}</th>
+                    </tr>
+                {% endfor %}
+            {% endfor %} -->
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+            <tr>
+                <td>{{cliente["id"]}}</td>
+                <td>{{cliente["nome"]}}</td>
+                <td>{{cliente["idade"]}}</td>
+                <td><a href="{{ url_for('edit',id=1) }}">Editar</a></td>
+                <td><a href="{{ url_for('delete',id=1) }}">Deletar</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
